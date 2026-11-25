@@ -9,7 +9,7 @@
   const CONFIG = (typeof window.OPENCALL_CONFIG === 'object' && window.OPENCALL_CONFIG) || {};
   const GAS_URL = typeof CONFIG.gasUrl === 'string' && CONFIG.gasUrl.indexOf('PASTE_') !== 0 ? CONFIG.gasUrl : null;
 
-  const OPEN_AT = Date.parse('2026-12-06T00:00:00+09:00');
+  const OPEN_AT = Date.parse('2026-11-25T00:00:00+09:00');
   const CLOSE_AT = Date.parse('2027-01-06T18:00:00+09:00');
   const CHUNK_SIZE = 4 * 1024 * 1024; // 4MB (Drive 요구치 256KB 배수)
   const DRAFT_KEY = 'kair2027_draft_v1';
