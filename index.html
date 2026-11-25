@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>オンライン参加申請 | 黄金町AIRプログラム 2027 | Koganecho AIR Open Call</title>
+  <meta name="description" content="黄金町アーティスト・イン・レジデンス（AIR）プログラム 2027 オープンコール オンライン参加申請フォーム。受付期間: 2026年12月6日～2027年1月6日 18:00 JST。">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="kapp">
+  <a class="kapp-skip" href="#applyForm">本文（申請フォーム）へスキップ</a>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="kapp-topbar">
+    <div class="kapp-topbar-inner">
+      <span class="kapp-brand">
+        <span class="kapp-brand-dot" aria-hidden="true"></span>
+        Koganecho Area Management Center · Open Call 2027
+      </span>
+      <nav class="kapp-lang-switch" aria-label="言語切替 / Language Switch">
+        <a href="index.html" aria-current="page" lang="ja">日本語</a>
+        <a href="en.html" lang="en">English</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="kapp-main">
+    <div class="kapp-container">
+
+      <!-- ============ HEADER ============ -->
+      <header class="kapp-header">
+        <h1 class="kapp-title">オンライン参加申請<br>黄金町アーティスト・イン・レジデンス（AIR）プログラム 2027</h1>
+        <p class="kapp-lead">
+          2027年2月1日以降に開始するAIRプログラムへの参加申請フォームです。所要時間の目安は<strong>15～20分</strong>です。
+          入力途中の内容はこの端末に自動保存されます（提出書類を除く）。
+        </p>
+        <p class="kapp-deadline-badge" id="statusBadge">応募受付期間: 2026.12.06(日) ～ 2027.01.06(水) 18:00 JST</p>
+
+        <dl class="kapp-facts">
+          <div class="kapp-fact">
+            <dt>応募受付期間</dt>
+            <dd>2026.12.06(日) ～<br>2027.01.06(水) 18:00 JST</dd>
+          </div>
+          <div class="kapp-fact">
+            <dt>入居開始</dt>
+            <dd>2027.02.01(月)より<br>順次入居</dd>
+          </div>
+          <div class="kapp-fact">
+            <dt>プログラム区分</dt>
+            <dd>短期 3か月（延長不可）<br>長期 1年（最長5年）</dd>
+          </div>
+          <div class="kapp-fact">
+            <dt>募集スタジオ</dt>
+            <dd>全16室<br>（居住型13・制作専用3）</dd>
+          </div>
+        </dl>
+
+        <p style="font-size:12.5px; color:var(--muted); margin:0;">
+          募集要項は
+          <a href="https://koganecho.net/" target="_blank" rel="noopener noreferrer">公式サイトの募集ページ</a>でご確認ください。
+          スタジオの詳細（面積・賃料・写真）は
+          <a href="https://koganecho.net/wp20201120/wp-content/uploads/2026/11/2027_opencall_studio.pdf" target="_blank" rel="noopener noreferrer">スタジオ詳細案内資料（PDF）</a>
+          をご覧ください。
+        </p>
+      </header>
+
+      <!-- ============ STATUS BANNERS ============ -->
+      <div class="kapp-banner kapp-banner-info" id="statusBanner" hidden role="status"></div>
+      <div class="kapp-banner kapp-banner-info" id="resumeBanner" hidden role="region" aria-label="未完了の申請"></div>
+      <div class="kapp-banner kapp-banner-info" id="draftBanner" hidden role="region" aria-label="下書き"></div>
+
+      <!-- ============ CLOSED PANEL ============ -->
+      <div class="kapp-closed" id="closedPanel" hidden>
+        <h2 id="closedTitle">現在、応募受付期間ではありません</h2>
+        <p id="closedBody">
+          受付期間: 2026年12月6日(日) ～ 2027年1月6日(水) 18:00（日本標準時）
+        </p>
+        <p>
+          ご質問は <a href="mailto:air@koganecho.net">air@koganecho.net</a> までメールでお問い合わせください。
+        </p>
+      </div>
+
+      <!-- ============ FORM ============ -->
+      <form class="kapp-form" id="applyForm" novalidate>
+
+        <!-- Progress -->
+        <ol class="kapp-progress" id="kappProgress" aria-label="入力ステップ">
+          <li class="is-active"><button type="button"><span>申請者情報</span></button></li>
+          <li><button type="button"><span>プログラム・スタジオ</span></button></li>
+          <li><button type="button"><span>活動内容・計画</span></button></li>
+          <li><button type="button"><span>書類アップロード</span></button></li>
+          <li><button type="button"><span>確認・同意</span></button></li>
+        </ol>
+
+        <!-- ================= STEP 1 ================= -->
+        <section class="kapp-step is-visible" data-step="1" aria-labelledby="step1Title">
+          <h2 class="kapp-step-title" id="step1Title"><span class="kapp-sec-num">1</span>申請者情報</h2>
+          <p class="kapp-step-desc">代表者（グループの場合は代表者1名）の情報をご入力ください。ふりがなは日本語のお名前にて登録がある方のみ入力します（海外の方はローマ字綴り）。</p>
+
+          <div class="kapp-grid">
+            <div class="kapp-field">
+              <label for="fName">氏名 <span class="kapp-req">*必須</span> <span class="kapp-sub">Full Name</span></label>
+              <input class="kapp-input" type="text" id="fName" name="name" required autocomplete="name" placeholder="例) 山田 太郎 / YAMADA Taro">
+            </div>
+            <div class="kapp-field">
+              <label for="fNameKana">ふりがな／ローマ字 <span class="kapp-req">*必須</span> <span class="kapp-sub">Furigana / Romanized</span></label>
+              <input class="kapp-input" type="text" id="fNameKana" name="nameKana" required placeholder="例) やまだ たろう / Yamada Taro">
+            </div>
+            <div class="kapp-field">
+              <label for="fArtistName">アーティスト名・グループ名 <span class="kapp-optional">任意</span> <span class="kapp-sub">Artist / Group Name</span></label>
+              <input class="kapp-input" type="text" id="fArtistName" name="artistName" placeholder="活動名がある場合のみ記入">
+            </div>
+            <div class="kapp-field">
+              <div class="kapp-field-label">主たる居住地 <span class="kapp-req">*必須</span> <span class="kapp-sub">Current Residence</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="residence" value="domestic" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="国内（日本）">国内（日本）在住</span>
+                    <span class="kapp-option-desc">現在日本に居住している方</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="residence" value="overseas">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="海外">海外在住</span>
+                    <span class="kapp-option-desc">日本国外に居住している方</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="kapp-field">
+              <label for="fNationality">国籍 <span class="kapp-req">*必須</span> <span class="kapp-sub">Nationality</span></label>
+              <input class="kapp-input" type="text" id="fNationality" name="nationality" required placeholder="例) 日本 / South Korea">
+            </div>
+            <div class="kapp-field">
+              <label for="fBirthDate">生年月日 <span class="kapp-req">*必須</span> <span class="kapp-sub">Date of Birth</span></label>
+              <input class="kapp-input" type="date" id="fBirthDate" name="birthDate" required max="2010-12-31">
+            </div>
+            <div class="kapp-field">
+              <label for="fEmail">メールアドレス <span class="kapp-req">*必須</span> <span class="kapp-sub">Email</span></label>
+              <input class="kapp-input" type="email" id="fEmail" name="email" required autocomplete="email" placeholder="example@domain.com">
+              <p class="kapp-help">確認メール・選考結果はすべてこのアドレス宛に送信されます。</p>
+            </div>
+            <div class="kapp-field">
+              <label for="fEmailConfirm">メールアドレス（確認用） <span class="kapp-req">*必須</span> <span class="kapp-sub">Confirm Email</span></label>
+              <input class="kapp-input" type="email" id="fEmailConfirm" name="emailConfirm" required placeholder="もう一度ご入力ください">
+            </div>
+            <div class="kapp-field">
+              <label for="fPhone">電話番号 <span class="kapp-req">*必須</span> <span class="kapp-sub">Phone（国番号を含む）</span></label>
+              <input class="kapp-input" type="tel" id="fPhone" name="phone" required autocomplete="tel" placeholder="+81-90-XXXX-XXXX">
+            </div>
+            <div class="kapp-field">
+              <label for="fWebsite">ウェブサイト / SNS <span class="kapp-optional">任意</span> <span class="kapp-sub">Website / Instagram</span></label>
+              <input class="kapp-input" type="text" id="fWebsite" name="website" placeholder="https://… / @handle">
+            </div>
+            <div class="kapp-field kapp-field-full">
+              <label for="fAddress">現住所 <span class="kapp-req">*必須</span> <span class="kapp-sub">Current Address（郵便番号・国名・市区町村・番地・建物名）</span></label>
+              <textarea class="kapp-textarea" id="fAddress" name="address" required placeholder="例) 〒231-0066 日本 神奈川県横浜市中区日ノ出町2-158 ○○ビル301"></textarea>
+            </div>
+          </div>
+
+          <div class="kapp-grid" style="margin-top:18px;">
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">応募形態 <span class="kapp-req">*必須</span> <span class="kapp-sub">Individual or Group</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="applicantType" value="personal" checked required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="個人">個人</span>
+                    <span class="kapp-option-desc">ひとりで応募する方</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="applicantType" value="group">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="グループ">グループ（チーム・デュオ等）</span>
+                    <span class="kapp-option-desc">2名以上での応募（事前相談扱いとなります）</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div id="groupFields" hidden class="kapp-field-full" style="display:grid; gap:16px;">
+              <div class="kapp-field">
+                <label for="fGroupMembers">グループ人数 <span class="kapp-req">*必須</span> <span class="kapp-sub">Number of Members（2名以上）</span></label>
+                <input class="kapp-input" type="number" id="fGroupMembers" name="groupMembers" min="2" max="20" placeholder="例) 3">
+              </div>
+              <div class="kapp-field">
+                <label for="fGroupDetail">メンバー構成 <span class="kapp-req">*必須</span> <span class="kapp-sub">Member Details（全員の氏名・役割・国籍）</span></label>
+                <textarea class="kapp-textarea" id="fGroupDetail" name="groupDetail" placeholder="例) 山田太郎（作家・日本）／KIM Minji（キュレーター・韓国）／…"></textarea>
+                <p class="kapp-help">※ グループ応募はスタジオ割当・滞在条件の確認のため、事務局との事前協議が必要です。申請後に事務局よりご連絡します。</p>
+              </div>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">同伴者の滞在 <span class="kapp-req">*必須</span> <span class="kapp-sub">Accompanying Persons（家族・パートナー等）</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="companionType" value="none" checked required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="なし">同伴者なし</span>
+                    <span class="kapp-option-desc">ひとりで滞在する</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="companionType" value="yes">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="あり">同伴者あり</span>
+                    <span class="kapp-option-desc">家族・パートナー等の同行を希望（事前相談扱い）</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div id="companionFields" hidden class="kapp-field-full" style="display:grid; gap:16px;">
+              <div class="kapp-field">
+                <label for="fCompanionCount">同伴者人数 <span class="kapp-req">*必須</span> <span class="kapp-sub">Number of Companions</span></label>
+                <input class="kapp-input" type="number" id="fCompanionCount" name="companionCount" min="1" max="10" placeholder="例) 1">
+              </div>
+              <div class="kapp-field">
+                <label for="fCompanionDetail">同伴者の詳細 <span class="kapp-req">*必須</span> <span class="kapp-sub">Companion Details（続柄・氏名・国籍・滞在予定）</span></label>
+                <textarea class="kapp-textarea" id="fCompanionDetail" name="companionDetail" placeholder="例) 配偶者（KIM Jiho・韓国）＋子ども1名、全期間同伴予定"></textarea>
+                <p class="kapp-help">※ 同伴滞在はスタジオ割当の確認のため事務局との事前協議が必要です。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- honeypot -->
+          <div class="kapp-hp" aria-hidden="true">
+            <label for="fWebsiteUrl">Website URL</label>
+            <input type="text" id="fWebsiteUrl" name="websiteUrl" tabindex="-1" autocomplete="off">
+          </div>
+        </section>
+
+        <!-- ================= STEP 2 ================= -->
+        <section class="kapp-step" data-step="2" aria-labelledby="step2Title">
+          <h2 class="kapp-step-title" id="step2Title"><span class="kapp-sec-num">2</span>プログラム・スタジオ希望</h2>
+          <p class="kapp-step-desc">
+            応募者が特定の号室を指定することはできません。①空間の用途、②居住形態をご希望に沿って選択してください。最終的な割当は、制作特性と選考結果を踏まえ事務局が決定します。
+          </p>
+
+          <div class="kapp-grid">
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">希望するプログラム区分 <span class="kapp-req">*必須</span> <span class="kapp-sub">Program</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="program" value="short" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="短期（3か月・延長不可）">短期プログラム <span class="kapp-tag">3か月・延長不可</span></span>
+                    <span class="kapp-option-desc">
+                      入居可能時期: <strong>2027年2月1日(月)～3月1日(月)</strong>の間で協議<br>
+                      終了日: <strong>2027年5月31日(月) 全員退去</strong>（黄金町バザール準備のため延長不可）
+                    </span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="program" value="long">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="長期（1年・最長5年）">長期プログラム <span class="kapp-tag kapp-tag-teal">1年・最長5年更新可</span></span>
+                    <span class="kapp-option-desc">
+                      1年契約を基本とし、毎年の更新審査を経て<strong>最長5年間</strong>まで活動可能<br>
+                      入居開始: 2027年2月1日(月)より順次
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <p class="kapp-help">※ 短期（3か月）・長期（1年）以外の期間（例: 6か月）での応募は受け付けておりません。</p>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">空間の用途 <span class="kapp-req">*必須</span> <span class="kapp-sub">Studio Purpose</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="studioPurpose" value="residential" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="居住型">居住型スタジオ（13室） <span class="kapp-tag">宿泊可</span></span>
+                    <span class="kapp-option-desc">スタジオ内で宿泊・生活しながら制作（遠方・海外からの滞在者向け）。フラットシェア8室・単独滞在5室。</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="studioPurpose" value="production">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="作品制作専用">作品制作専用スタジオ（3室） <span class="kapp-tag kapp-tag-amber">滞在不可</span></span>
+                    <span class="kapp-option-desc">制作・研究専用スペース。<strong>スタジオ内での宿泊・滞在は一切できません。</strong></span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="kapp-field kapp-field-full" id="livingStyleField">
+              <div class="kapp-field-label">居住形態の希望 <span class="kapp-req">*必須</span> <span class="kapp-sub">Living Style（居住型を選んだ場合）</span></div>
+              <div class="kapp-option-cards kapp-cols-3">
+                <label class="kapp-option-card">
+                  <input type="radio" name="livingStyle" value="share" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="フラットシェア">フラットシェア <span class="kapp-tag">短期専用・8室</span></span>
+                    <span class="kapp-option-desc">キッチン・水回りを共有する共同生活型（八番館・MOMO・山本アパート等）</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="livingStyle" value="private">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="単独滞在">単独滞在 <span class="kapp-tag">5室</span></span>
+                    <span class="kapp-option-desc">独立した個室での滞在（高橋ビル・CHAP・ハツネウィング等）</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="livingStyle" value="either">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="どちらでも可">どちらでも可</span>
+                    <span class="kapp-option-desc">事務局のマッチング提案に一任する</span>
+                  </span>
+                </label>
+              </div>
+              <p class="kapp-help" id="shareShortNote" hidden style="color:var(--danger); font-weight:600;">
+                ※ フラットシェア（8室）は<strong>短期プログラム専用</strong>のため、長期プログラムでは選択できません。
+              </p>
+            </div>
+
+            <div class="kapp-field">
+              <label for="fMoveInDate">入居希望日 <span class="kapp-req">*必須</span> <span class="kapp-sub">Desired Move-in Date</span></label>
+              <input class="kapp-input" type="date" id="fMoveInDate" name="moveInDate" required min="2027-02-01">
+              <p class="kapp-help">短期: 2027年2月1日～3月1日の間で指定／長期: 2027年2月1日以降で指定</p>
+            </div>
+
+            <div class="kapp-field">
+              <label for="fSecondChoice">第2希望スタジオ形態 <span class="kapp-optional">任意</span> <span class="kapp-sub">Second Choice</span></label>
+              <select class="kapp-select" id="fSecondChoice" name="secondChoice">
+                <option value="none">第2希望なし</option>
+                <option value="share">居住型 − フラットシェア（短期専用）</option>
+                <option value="private">居住型 − 単独滞在</option>
+                <option value="production">作品制作専用</option>
+              </select>
+              <p class="kapp-help">第1希望の空間が満室の場合の参考情報として事務局が使用します。</p>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">Zoom面接の希望言語 <span class="kapp-req">*必須</span> <span class="kapp-sub">Interview Language</span></div>
+              <div class="kapp-option-cards kapp-cols-3">
+                <label class="kapp-option-card">
+                  <input type="radio" name="interviewLang" value="ja" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="日本語">日本語</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="interviewLang" value="en">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="English">English</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="interviewLang" value="ko">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="한국어">한국어 <span class="kapp-tag kapp-tag-teal">対応可</span></span>
+                  </span>
+                </label>
+              </div>
+              <div class="kapp-option-cards kapp-cols-3">
+                <label class="kapp-option-card">
+                  <input type="radio" name="interviewLang" value="zh">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="中文">中文 <span class="kapp-tag kapp-tag-teal">対応可</span></span>
+                  </span>
+                </label>
+              </div>
+              <p class="kapp-help" id="interviewLangNote" hidden>
+                ※ 韓国語・中国語での面接は通訳スタッフを介して実施します。日時の調整にはお時間をいただく場合があります。
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================= STEP 3 ================= -->
+        <section class="kapp-step" data-step="3" aria-labelledby="step3Title">
+          <h2 class="kapp-step-title" id="step3Title"><span class="kapp-sec-num">3</span>活動内容・計画</h2>
+          <p class="kapp-step-desc">
+            黄金町での活動計画をご記入ください。<strong>月別の活動計画はこのフォーム内で入力</strong>します（別途「活動計画書」の提出は不要です）。
+          </p>
+
+          <div class="kapp-grid">
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">主な活動分野（複数選択可） <span class="kapp-req">*必須（1つ以上）</span> <span class="kapp-sub">Artistic Discipline</span></div>
+              <div class="kapp-check-grid">
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="現代美術（Visual Arts）"> 現代美術（Visual Arts）</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="絵画・平面（Painting）"> 絵画・平面（Painting）</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="彫刻・立体（Sculpture）"> 彫刻・立体（Sculpture）</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="インスタレーション（Installation）"> インスタレーション</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="写真・映像（Photo & Video）"> 写真・映像</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="工芸（Crafts）"> 工芸（Crafts）</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="デザイン・建築（Design & Architecture）"> デザイン・建築</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="音楽・音響（Music & Sound）"> 音楽・音響</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="文学・執筆（Literature & Writing）"> 文学・執筆</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="パフォーマンス（Performance）"> 演劇・ダンス・パフォーマンス</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="都市研究・まちづくり（Urban Research）"> 都市研究・まちづくり</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="other"> その他</label>
+              </div>
+              <div class="kapp-field" id="disciplineOtherField" hidden style="margin-top:8px;">
+                <label for="fDisciplineOtherText">その他の活動分野 <span class="kapp-req">*必須</span></label>
+                <input class="kapp-input" type="text" id="fDisciplineOtherText" name="disciplineOtherText" placeholder="具体的な分野をご記入ください">
+              </div>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <label for="fMaterialsNotes">主な使用素材・道具、作業上の特記事項 <span class="kapp-optional">任意</span> <span class="kapp-sub">Materials, Equipment & Notes</span></label>
+              <textarea class="kapp-textarea" id="fMaterialsNotes" name="materialsNotes" placeholder="例) アクリル絵具・木材・電動工具、PC映像編集。夜間の作業は行わない 等"></textarea>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <label for="fActivityOverview">滞在目的および活動計画の概要 <span class="kapp-req">*必須</span> <span class="kapp-sub">Purpose & Overview of Activities（200～400字程度）</span></label>
+              <textarea class="kapp-textarea" id="fActivityOverview" name="activityOverview" required placeholder="黄金町での滞在を通じてどのようなリサーチ・制作・地域交流を行う予定か、概要をご記入ください。"></textarea>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">月別活動計画 <span class="kapp-req">*最初の3か月は必須</span> <span class="kapp-sub">Month-by-month Activity Plan</span></div>
+              <div id="monthlyPlan" class="kapp-monthly-list">
+                <div class="kapp-info-box"><p>Step 2 で入居希望日を選択すると、滞在月に応じた入力欄が表示されます。</p></div>
+              </div>
+              <p class="kapp-help">月ごとのリサーチ・制作・展示準備・地域交流などの予定を簡潔にご記入ください。詳細な計画は選考時に Zoom 面接でお伺いします。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= STEP 4 ================= -->
+        <section class="kapp-step" data-step="4" aria-labelledby="step4Title">
+          <h2 class="kapp-step-title" id="step4Title"><span class="kapp-sec-num">4</span>提出書類のアップロード</h2>
+          <p class="kapp-step-desc">
+            提出書類3点（ポートフォリオ・経歴書・アーティスト・ステートメント）をアップロードしてください。
+            すべて<strong>日本語または英語</strong>で作成されたファイルである必要があります。各ファイルの上限は記載のとおりです。
+          </p>
+
+          <div class="kapp-notice" role="note">
+            <p><strong>通信環境について:</strong> 大容量ファイル（最大120MB）を扱うため、安定したWi-Fi環境でのアップロードを推奨します。接続が切れた場合、このページを再び開くと手続きを再開できます（締切後24時間以内に限る）。</p>
+          </div>
+
+          <div class="kapp-grid" style="grid-template-columns:1fr;">
+
+            <!-- Portfolio -->
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">① ポートフォリオ <span class="kapp-req">*必須</span> <span class="kapp-sub">Portfolio</span></div>
+              <div class="kapp-filezone" data-dropzone="portfolio">
+                <div class="kapp-filezone-icon" aria-hidden="true">📁</div>
+                <p class="kapp-filezone-title">ポートフォリオ（PDF）</p>
+                <p class="kapp-filezone-desc">
+                  作品<strong>20点以内</strong>・PDF形式・<strong>120MB以内</strong><br>
+                  映像・音響作品はPDF内に視聴可能なURLをご記入ください。
+                </p>
+                <button type="button" class="kapp-btn-choose">ファイルを選択</button>
+              </div>
+              <div class="kapp-filecard" data-filecard="portfolio">
+                <span class="kapp-filecard-icon" aria-hidden="true">📄</span>
+                <div>
+                  <div class="kapp-filecard-name"></div>
+                  <div class="kapp-filecard-meta"></div>
+                </div>
+                <div class="kapp-filecard-actions">
+                  <button type="button" class="kapp-btn-unlink">選択解除</button>
+                </div>
+              </div>
+              <input type="file" data-kind="portfolio" accept="application/pdf,.pdf" hidden>
+            </div>
+
+            <!-- Video / Audio URLs -->
+            <div class="kapp-field kapp-field-full">
+              <label class="kapp-field-label" for="fMediaUrls">映像・音響作品の視聴URL <span class="kapp-opt">任意</span> <span class="kapp-sub">Video / Audio Work URLs</span></label>
+              <textarea class="kapp-textarea" id="fMediaUrls" name="mediaUrls" rows="2" placeholder="例）https://vimeo.com/xxxxxx&#10;https://youtu.be/xxxxxx（限定公開の場合はパスワードもご記入ください）"></textarea>
+              <p class="kapp-help">YouTube・Vimeo・SoundCloud 等の視聴用リンクがある場合はこちらにもご記入ください（複数可・改行区切り）。</p>
+            </div>
+
+            <!-- CV -->
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">② 経歴書（C.V.） <span class="kapp-req">*必須</span> <span class="kapp-sub">Curriculum Vitae</span></div>
+              <div class="kapp-filezone" data-dropzone="cv">
+                <div class="kapp-filezone-icon" aria-hidden="true">📄</div>
+                <p class="kapp-filezone-title">経歴書（PDF / Word）</p>
+                <p class="kapp-filezone-desc">
+                  主な活動歴、展示・プロジェクト・研究実績等（10MB以内）
+                </p>
+                <button type="button" class="kapp-btn-choose">ファイルを選択</button>
+              </div>
+              <div class="kapp-filecard" data-filecard="cv">
+                <span class="kapp-filecard-icon" aria-hidden="true">📄</span>
+                <div>
+                  <div class="kapp-filecard-name"></div>
+                  <div class="kapp-filecard-meta"></div>
+                </div>
+                <div class="kapp-filecard-actions">
+                  <button type="button" class="kapp-btn-unlink">選択解除</button>
+                </div>
+              </div>
+              <input type="file" data-kind="cv" accept="application/pdf,.pdf,.doc,.docx" hidden>
+            </div>
+
+            <!-- Statement -->
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">③ アーティスト・ステートメント <span class="kapp-req">*必須</span> <span class="kapp-sub">Artist Statement</span></div>
+              <div class="kapp-filezone" data-dropzone="statement">
+                <div class="kapp-filezone-icon" aria-hidden="true">✍️</div>
+                <p class="kapp-filezone-title">アーティスト・ステートメント（PDF / Word）</p>
+                <p class="kapp-filezone-desc">
+                  これまでの制作理念や主な関心・テーマについて（10MB以内）
+                </p>
+                <button type="button" class="kapp-btn-choose">ファイルを選択</button>
+              </div>
+              <div class="kapp-filecard" data-filecard="statement">
+                <span class="kapp-filecard-icon" aria-hidden="true">✍️</span>
+                <div>
+                  <div class="kapp-filecard-name"></div>
+                  <div class="kapp-filecard-meta"></div>
+                </div>
+                <div class="kapp-filecard-actions">
+                  <button type="button" class="kapp-btn-unlink">選択解除</button>
+                </div>
+              </div>
+              <input type="file" data-kind="statement" accept="application/pdf,.pdf,.doc,.docx" hidden>
+            </div>
+          </div>
+
+          <div class="kapp-info-box">
+            <p>※ 入居申請書（活動計画を含む）はこのフォーム自体が該当するため、別途提出は不要です。<br>※ ご提出いただいた書類は返却いたしません。</p>
+          </div>
+        </section>
+
+        <!-- ================= STEP 5 ================= -->
+        <section class="kapp-step" data-step="5" aria-labelledby="step5Title">
+          <h2 class="kapp-step-title" id="step5Title"><span class="kapp-sec-num">5</span>確認・同意・署名</h2>
+          <p class="kapp-step-desc">入力内容をご確認のうえ、確認・同意事項に同意して送信してください。修正したい項目は「修正」ボタンから各ステップに戻れます。</p>
+
+          <div class="kapp-review" id="reviewBody"><!-- JS で生成 --></div>
+
+          <div class="kapp-terms" style="margin-top:22px;">
+            <h3>【プログラム参加にあたっての確認・誓約事項】</h3>
+            <ul>
+              <li><strong>費用負担:</strong> スタジオの月額使用料、火災・賠償責任保険料（月額1,000円・税込）、および光熱水費（短期: センター標準精算料金表／長期: メーター実測検針による実費）は自己負担とし、期日までに納入します。</li>
+              <li><strong>鍵保証金・原状回復:</strong> 入居時に鍵保証金を別途お支払いいただきます。退去時には使用したスタジオを入居時の状態へ原状回復のうえ返還します。</li>
+              <li><strong>短期プログラムの期間:</strong> 短期プログラム（3か月）の期間延長は認められず、<strong>2027年5月31日までに退去・原状回復</strong>を行います。</li>
+              <li><strong>規則の遵守:</strong> NPO法人黄金町エリアマネジメントセンターの管理規則およびスタジオ利用規約を遵守し、近隣住民や他のレジデンスアーティストと良好な関係を保ちます。</li>
+              <li><strong>海外渡航者:</strong> 渡航費・滞在生活費・海外旅行保険および<strong>ビザの取得は自己負担・自己責任</strong>です。日本の出入国管理及び難民認定法（ビザ規定）を遵守し、就労資格のない短期滞在等での作品販売は原則禁止であることを了承します。</li>
+              <li><strong>個人情報の取扱い:</strong> ご記入いただいた個人情報は、本オープンコールの選考およびプログラム運営の目的以外には使用いたしません。</li>
+            </ul>
+          </div>
+
+          <div class="kapp-agree-list">
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeFees" required>
+              <span>スタジオ使用料・光熱水費・保険料（月1,000円）が毎月自己負担となることに同意します。 <span class="kapp-req">*必須</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeDeposit" required>
+              <span>入居時の鍵保証金および退去時の原状回復義務に同意します。 <span class="kapp-req">*必須</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeShortTerm" required>
+              <span>短期プログラムは延長不可で2027年5月31日までに全員退去することを確認しました。 <span class="kapp-req">*必須</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeRules" required>
+              <span>センターの管理規則・スタジオ利用規約の遵守と、地域・他のレジデントとの協調に同意します。 <span class="kapp-req">*必須</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeVisa" required>
+              <span>海外から渡航する場合、ビザ取得・渡航費等は自己負担・自己責任であることに同意します。 <span class="kapp-req">*必須</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreePrivacy" required>
+              <span>個人情報の取扱いについて同意します（提出書類は返却されません）。 <span class="kapp-req">*必須</span></span>
+            </label>
+          </div>
+
+          <div class="kapp-grid" style="margin-top:18px;">
+            <div class="kapp-field">
+              <label for="fSignature">署名（お名前を入力） <span class="kapp-req">*必須</span> <span class="kapp-sub">Signature（Full Name）</span></label>
+              <input class="kapp-input" type="text" id="fSignature" name="signature" required placeholder="例) YAMADA Taro / 山田 太郎">
+              <p class="kapp-help">入力されたお名前は電子署名として記録されます。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= NAV ================= -->
+        <div class="kapp-nav">
+          <button type="button" class="kapp-btn kapp-btn-secondary" id="btnPrev" hidden>← 戻る</button>
+          <span class="kapp-nav-hint" id="navHint" aria-live="polite">Step 1 / 5</span>
+          <button type="button" class="kapp-btn kapp-btn-primary" id="btnNext">次へ進む →</button>
+          <button type="button" class="kapp-btn kapp-btn-primary" id="btnSubmit" hidden>上記の内容で申し込む</button>
+        </div>
+      </form>
+
+      <!-- ============ SUBMIT PANEL ============ -->
+      <div class="kapp-submit-panel" id="submitPanel" hidden>
+        <!-- Phase: Prepare -->
+        <div id="phasePrepare">
+          <h2>送信処理中</h2>
+          <p class="kapp-submit-lead" id="phaseLead">サーバー処理中…（受付番号の発行とアップロード準備をしています）</p>
+          <p style="text-align:center;"><span class="kapp-spinner" aria-hidden="true"></span><span style="font-size:13.5px; color:var(--muted);">お待ちください…</span></p>
+        </div>
+
+        <!-- Phase: Upload -->
+        <div id="phaseUpload" hidden>
+          <h2>提出書類をアップロード中</h2>
+          <p class="kapp-submit-lead">画面を閉じずにお待ちください。進捗は下のバーで確認できます。</p>
+          <div id="uploadRows"></div>
+          <p id="uploadOverall" class="kapp-help" style="margin-top:14px;" aria-live="polite"></p>
+        </div>
+
+        <!-- Phase: Done -->
+        <div id="phaseDone" hidden>
+          <div class="kapp-done">
+            <div class="kapp-done-check" aria-hidden="true">✓</div>
+            <h2>お申し込みが完了しました</h2>
+            <p class="kapp-submit-lead">下記の受付番号で受け付けました。確認メールをお送りしましたのでご確認ください（迷惑メールフォルダもご確認ください）。</p>
+            <p class="kapp-app-id-label" style="font-size:12.5px; color:var(--muted); font-weight:700; margin-bottom:4px;">受付番号 / Application ID</p>
+            <div class="kapp-done-id" id="doneAppId">—</div>
+            <div class="kapp-next-steps">
+              <h3>今後の予定</h3>
+              <ul id="doneNextSteps"></ul>
+            </div>
+            <p style="margin-top:16px; font-size:13px; color:var(--muted);">受付番号は大切に保管してください。お問い合わせの際に必要です。</p>
+          </div>
+        </div>
+
+        <!-- Phase: Error -->
+        <div id="phaseError" hidden>
+          <h2>エラーが発生しました</h2>
+          <p class="kapp-submit-lead" id="errorMsg" style="color:var(--danger); font-weight:600;"></p>
+          <div id="errorActions" style="display:flex; gap:10px; flex-wrap:wrap;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="kapp-footer">
+    特定非営利活動法人 黄金町エリアマネジメントセンター（Koganecho Area Management Center）<br>
+    AIR事務局: <a href="mailto:air@koganecho.net">air@koganecho.net</a> ／ 〒231-0066 神奈川県横浜市中区日ノ出町2-158<br>
+    <span style="font-size:11.5px;">© Koganecho Area Management Center · Open Call 2027</span>
+  </footer>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Application | Koganecho AIR Program 2027 | Open Call</title>
+  <meta name="description" content="Online application form for the Koganecho Artist in Residence (AIR) Program 2027 Open Call. Application period: December 6, 2026 – January 6, 2027, 18:00 JST.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="kapp">
+  <a class="kapp-skip" href="#applyForm">Skip to the application form</a>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="kapp-topbar">
+    <div class="kapp-topbar-inner">
+      <span class="kapp-brand">
+        <span class="kapp-brand-dot" aria-hidden="true"></span>
+        Koganecho Area Management Center · Open Call 2027
+      </span>
+      <nav class="kapp-lang-switch" aria-label="Language Switch / 言語切替">
+        <a href="index.html" lang="ja">日本語</a>
+        <a href="en.html" aria-current="page" lang="en">English</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="kapp-main">
+    <div class="kapp-container">
+
+      <!-- ============ HEADER ============ -->
+      <header class="kapp-header">
+        <h1 class="kapp-title">Online Application<br>Koganecho Artist in Residence (AIR) Program 2027</h1>
+        <p class="kapp-lead">
+          This is the application form for the AIR program starting February 1, 2027. It takes about
+          <strong>15–20 minutes</strong> to complete. Your progress is auto-saved on this device as you type
+          (uploaded files are not saved).
+        </p>
+        <p class="kapp-deadline-badge" id="statusBadge">Application Period: Dec 6, 2026 – Jan 6, 2027, 18:00 JST</p>
+
+        <dl class="kapp-facts">
+          <div class="kapp-fact">
+            <dt>Application Period</dt>
+            <dd>Dec 6, 2026 –<br>Jan 6, 2027, 18:00 JST</dd>
+          </div>
+          <div class="kapp-fact">
+            <dt>Move-in Start</dt>
+            <dd>Sequential move-in<br>from Feb 1, 2027</dd>
+          </div>
+          <div class="kapp-fact">
+            <dt>Program Types</dt>
+            <dd>Short-term: 3 months (fixed)<br>Long-term: 1 year (up to 5 years)</dd>
+          </div>
+          <div class="kapp-fact">
+            <dt>Available Studios</dt>
+            <dd>16 studios total<br>(13 residential · 3 work-only)</dd>
+          </div>
+        </dl>
+
+        <p style="font-size:12.5px; color:var(--muted); margin:0;">
+          Please see the full guidelines on the
+          <a href="https://koganecho.net/" target="_blank" rel="noopener noreferrer">official Open Call page</a>.
+          Studio details (floor area, rent, photos) are in the
+          <a href="https://koganecho.net/wp20201120/wp-content/uploads/2026/11/2027_opencall_studio.pdf" target="_blank" rel="noopener noreferrer">Studio Guide (PDF)</a>.
+        </p>
+      </header>
+
+      <!-- ============ STATUS BANNERS ============ -->
+      <div class="kapp-banner kapp-banner-info" id="statusBanner" hidden role="status"></div>
+      <div class="kapp-banner kapp-banner-info" id="resumeBanner" hidden role="region" aria-label="Incomplete application"></div>
+      <div class="kapp-banner kapp-banner-info" id="draftBanner" hidden role="region" aria-label="Draft"></div>
+
+      <!-- ============ CLOSED PANEL ============ -->
+      <div class="kapp-closed" id="closedPanel" hidden>
+        <h2 id="closedTitle">Applications Are Currently Closed</h2>
+        <p id="closedBody">
+          Application period: December 6, 2026 – January 6, 2027, 18:00 (JST).
+        </p>
+        <p>
+          For inquiries, please email <a href="mailto:air@koganecho.net">air@koganecho.net</a>.
+        </p>
+      </div>
+
+      <!-- ============ FORM ============ -->
+      <form class="kapp-form" id="applyForm" novalidate>
+
+        <!-- Progress -->
+        <ol class="kapp-progress" id="kappProgress" aria-label="Application steps">
+          <li class="is-active"><button type="button"><span>Applicant</span></button></li>
+          <li><button type="button"><span>Program &amp; Studio</span></button></li>
+          <li><button type="button"><span>Activities &amp; Plan</span></button></li>
+          <li><button type="button"><span>Documents</span></button></li>
+          <li><button type="button"><span>Review &amp; Consent</span></button></li>
+        </ol>
+
+        <!-- ================= STEP 1 ================= -->
+        <section class="kapp-step is-visible" data-step="1" aria-labelledby="step1Title">
+          <h2 class="kapp-step-title" id="step1Title"><span class="kapp-sec-num">1</span>Applicant Details</h2>
+          <p class="kapp-step-desc">Enter the details of the representative applicant (for groups, one representative). Furigana is only required for names registered in Japanese (overseas applicants may enter the romanized spelling).</p>
+
+          <div class="kapp-grid">
+            <div class="kapp-field">
+              <label for="fName">Full Name <span class="kapp-req">*Required</span></label>
+              <input class="kapp-input" type="text" id="fName" name="name" required autocomplete="name" placeholder="e.g.) YAMADA Taro">
+            </div>
+            <div class="kapp-field">
+              <label for="fNameKana">Furigana / Romanized Name <span class="kapp-req">*Required</span></label>
+              <input class="kapp-input" type="text" id="fNameKana" name="nameKana" required placeholder="e.g.) Yamada Taro">
+            </div>
+            <div class="kapp-field">
+              <label for="fArtistName">Artist / Group Name <span class="kapp-optional">Optional</span></label>
+              <input class="kapp-input" type="text" id="fArtistName" name="artistName" placeholder="Only if you use a working name">
+            </div>
+            <div class="kapp-field">
+              <div class="kapp-field-label">Current Residence <span class="kapp-req">*Required</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="residence" value="domestic" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Japan">Living in Japan</span>
+                    <span class="kapp-option-desc">Currently residing in Japan</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="residence" value="overseas">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Overseas">Living overseas</span>
+                    <span class="kapp-option-desc">Residing outside Japan</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="kapp-field">
+              <label for="fNationality">Nationality <span class="kapp-req">*Required</span></label>
+              <input class="kapp-input" type="text" id="fNationality" name="nationality" required placeholder="e.g.) Japan / South Korea">
+            </div>
+            <div class="kapp-field">
+              <label for="fBirthDate">Date of Birth <span class="kapp-req">*Required</span></label>
+              <input class="kapp-input" type="date" id="fBirthDate" name="birthDate" required max="2010-12-31">
+            </div>
+            <div class="kapp-field">
+              <label for="fEmail">Email Address <span class="kapp-req">*Required</span></label>
+              <input class="kapp-input" type="email" id="fEmail" name="email" required autocomplete="email" placeholder="example@domain.com">
+              <p class="kapp-help">The confirmation email and all selection results will be sent to this address.</p>
+            </div>
+            <div class="kapp-field">
+              <label for="fEmailConfirm">Confirm Email Address <span class="kapp-req">*Required</span></label>
+              <input class="kapp-input" type="email" id="fEmailConfirm" name="emailConfirm" required placeholder="Enter the same address again">
+            </div>
+            <div class="kapp-field">
+              <label for="fPhone">Telephone Number <span class="kapp-req">*Required</span> <span class="kapp-sub">Include country code</span></label>
+              <input class="kapp-input" type="tel" id="fPhone" name="phone" required autocomplete="tel" placeholder="+81-90-XXXX-XXXX">
+            </div>
+            <div class="kapp-field">
+              <label for="fWebsite">Website / SNS <span class="kapp-optional">Optional</span></label>
+              <input class="kapp-input" type="text" id="fWebsite" name="website" placeholder="https://… / @handle">
+            </div>
+            <div class="kapp-field kapp-field-full">
+              <label for="fAddress">Current Address <span class="kapp-req">*Required</span> <span class="kapp-sub">Postal code, country, city, street, building</span></label>
+              <textarea class="kapp-textarea" id="fAddress" name="address" required placeholder="e.g.) 2-158 Hinodecho, Naka-ku, Yokohama, Kanagawa 231-0066, Japan"></textarea>
+            </div>
+          </div>
+
+          <div class="kapp-grid" style="margin-top:18px;">
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">Application Type <span class="kapp-req">*Required</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="applicantType" value="personal" checked required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Individual">Individual</span>
+                    <span class="kapp-option-desc">Applying as a single person</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="applicantType" value="group">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Group">Group (team / duo)</span>
+                    <span class="kapp-option-desc">Applying as 2 or more members (prior consultation required)</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div id="groupFields" hidden class="kapp-field-full" style="display:grid; gap:16px;">
+              <div class="kapp-field">
+                <label for="fGroupMembers">Number of Members <span class="kapp-req">*Required</span> <span class="kapp-sub">2 or more</span></label>
+                <input class="kapp-input" type="number" id="fGroupMembers" name="groupMembers" min="2" max="20" placeholder="e.g.) 3">
+              </div>
+              <div class="kapp-field">
+                <label for="fGroupDetail">Member Details <span class="kapp-req">*Required</span> <span class="kapp-sub">All members' names, roles, nationalities</span></label>
+                <textarea class="kapp-textarea" id="fGroupDetail" name="groupDetail" placeholder="e.g.) YAMADA Taro (artist, Japan) / KIM Minji (curator, South Korea) / …"></textarea>
+                <p class="kapp-help">* Group applications require prior consultation with the secretariat to confirm studio assignment and residency conditions. We will contact you after submission.</p>
+              </div>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">Accompanying Persons <span class="kapp-req">*Required</span> <span class="kapp-sub">Family members, partners, etc.</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="companionType" value="none" checked required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="None">No accompanying persons</span>
+                    <span class="kapp-option-desc">Staying alone</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="companionType" value="yes">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Yes">With accompanying persons</span>
+                    <span class="kapp-option-desc">Family or partner joining the stay (prior consultation required)</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div id="companionFields" hidden class="kapp-field-full" style="display:grid; gap:16px;">
+              <div class="kapp-field">
+                <label for="fCompanionCount">Number of Companions <span class="kapp-req">*Required</span></label>
+                <input class="kapp-input" type="number" id="fCompanionCount" name="companionCount" min="1" max="10" placeholder="e.g.) 1">
+              </div>
+              <div class="kapp-field">
+                <label for="fCompanionDetail">Companion Details <span class="kapp-req">*Required</span> <span class="kapp-sub">Relationship, name, nationality, stay plan</span></label>
+                <textarea class="kapp-textarea" id="fCompanionDetail" name="companionDetail" placeholder="e.g.) Spouse (KIM Jiho, South Korea) + 1 child, staying for the full period"></textarea>
+                <p class="kapp-help">* Accompanying stays require prior consultation with the secretariat regarding studio assignment.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- honeypot -->
+          <div class="kapp-hp" aria-hidden="true">
+            <label for="fWebsiteUrl">Website URL</label>
+            <input type="text" id="fWebsiteUrl" name="websiteUrl" tabindex="-1" autocomplete="off">
+          </div>
+        </section>
+
+        <!-- ================= STEP 2 ================= -->
+        <section class="kapp-step" data-step="2" aria-labelledby="step2Title">
+          <h2 class="kapp-step-title" id="step2Title"><span class="kapp-sec-num">2</span>Program &amp; Studio Preferences</h2>
+          <p class="kapp-step-desc">
+            Applicants cannot specify exact room numbers. Please select ① studio purpose and ② living style.
+            Final assignments are determined by the secretariat based on your practice and the review results.
+          </p>
+
+          <div class="kapp-grid">
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">Preferred Program <span class="kapp-req">*Required</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="program" value="short" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Short-term (3 months, non-extendable)">Short-term Program <span class="kapp-tag">3 months · fixed</span></span>
+                    <span class="kapp-option-desc">
+                      Move-in window: between <strong>Feb 1 and Mar 1, 2027</strong> (arranged with staff)<br>
+                      End date: <strong>all short-term residencies conclude on May 31, 2027</strong> (no extensions)
+                    </span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="program" value="long">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Long-term (1 year, up to 5 years)">Long-term Program <span class="kapp-tag kapp-tag-teal">1 year · renewable to 5</span></span>
+                    <span class="kapp-option-desc">
+                      Standard 1-year contract, renewable up to <strong>5 years</strong> through annual review<br>
+                      Move-in: sequentially from February 1, 2027
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <p class="kapp-help">* Programs other than 3 months / 1 year (e.g., 6 months) are not offered.</p>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">Studio Purpose <span class="kapp-req">*Required</span></div>
+              <div class="kapp-option-cards">
+                <label class="kapp-option-card">
+                  <input type="radio" name="studioPurpose" value="residential" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Residential">Residential Studio (13) <span class="kapp-tag">Live-in</span></span>
+                    <span class="kapp-option-desc">Live and work in the studio (recommended for applicants from outside Kanagawa / overseas). 8 shared flats · 5 private.</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="studioPurpose" value="production">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Production-only">Production-only Studio (3) <span class="kapp-tag kapp-tag-amber">No overnight stay</span></span>
+                    <span class="kapp-option-desc">Workspace for production and research only. <strong>No overnight stays are permitted.</strong></span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="kapp-field kapp-field-full" id="livingStyleField">
+              <div class="kapp-field-label">Living Style <span class="kapp-req">*Required</span> <span class="kapp-sub">If Residential is selected</span></div>
+              <div class="kapp-option-cards kapp-cols-3">
+                <label class="kapp-option-card">
+                  <input type="radio" name="livingStyle" value="share" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Shared flat">Shared Flat <span class="kapp-tag">Short-term only · 8</span></span>
+                    <span class="kapp-option-desc">Shared kitchen and bathroom (Hachibankan, MOMO, Yamamoto Apartment, etc.)</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="livingStyle" value="private">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Private">Private <span class="kapp-tag">5 studios</span></span>
+                    <span class="kapp-option-desc">Independent private room (Takahashi Bldg., CHAP, Hatsune Wing, etc.)</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="livingStyle" value="either">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="Either">Either is fine</span>
+                    <span class="kapp-option-desc">Leave the matching to the secretariat</span>
+                  </span>
+                </label>
+              </div>
+              <p class="kapp-help" id="shareShortNote" hidden style="color:var(--danger); font-weight:600;">
+                * The 8 shared-flat studios are <strong>reserved for the short-term program</strong> and cannot be selected for the long-term program.
+              </p>
+            </div>
+
+            <div class="kapp-field">
+              <label for="fMoveInDate">Desired Move-in Date <span class="kapp-req">*Required</span></label>
+              <input class="kapp-input" type="date" id="fMoveInDate" name="moveInDate" required min="2027-02-01">
+              <p class="kapp-help">Short-term: between Feb 1 and Mar 1, 2027 / Long-term: from Feb 1, 2027 onward</p>
+            </div>
+
+            <div class="kapp-field">
+              <label for="fSecondChoice">Second-choice Studio Type <span class="kapp-optional">Optional</span></label>
+              <select class="kapp-select" id="fSecondChoice" name="secondChoice">
+                <option value="none">No second choice</option>
+                <option value="share">Residential — Shared flat (short-term only)</option>
+                <option value="private">Residential — Private</option>
+                <option value="production">Production-only</option>
+              </select>
+              <p class="kapp-help">Used as a reference by the secretariat if your first-choice type is fully booked.</p>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">Preferred Interview Language (Zoom) <span class="kapp-req">*Required</span></div>
+              <div class="kapp-option-cards kapp-cols-3">
+                <label class="kapp-option-card">
+                  <input type="radio" name="interviewLang" value="ja" required>
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="日本語 (Japanese)">日本語 <span class="kapp-tag">Japanese</span></span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="interviewLang" value="en">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="English">English</span>
+                  </span>
+                </label>
+                <label class="kapp-option-card">
+                  <input type="radio" name="interviewLang" value="ko">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="한국어 (Korean)">한국어 <span class="kapp-tag kapp-tag-teal">Korean</span></span>
+                  </span>
+                </label>
+              </div>
+              <div class="kapp-option-cards kapp-cols-3">
+                <label class="kapp-option-card">
+                  <input type="radio" name="interviewLang" value="zh">
+                  <span class="kapp-option-body">
+                    <span class="kapp-option-title" data-vlabel="中文 (Chinese)">中文 <span class="kapp-tag kapp-tag-teal">Chinese</span></span>
+                  </span>
+                </label>
+              </div>
+              <p class="kapp-help" id="interviewLangNote" hidden>
+                * Korean and Chinese interviews are conducted with an interpreter. Scheduling may take a little longer.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================= STEP 3 ================= -->
+        <section class="kapp-step" data-step="3" aria-labelledby="step3Title">
+          <h2 class="kapp-step-title" id="step3Title"><span class="kapp-sec-num">3</span>Activities &amp; Plan</h2>
+          <p class="kapp-step-desc">
+            Describe your planned activities in Koganecho. The <strong>month-by-month plan is filled in within this form</strong>
+            (no separate activity plan document is required).
+          </p>
+
+          <div class="kapp-grid">
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">Artistic Discipline <span class="kapp-req">*Required (select at least one)</span> <span class="kapp-sub">Multiple selections allowed</span></div>
+              <div class="kapp-check-grid">
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Visual Arts"> Visual Arts</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Painting"> Painting</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Sculpture"> Sculpture</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Installation"> Installation</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Photo &amp; Video"> Photo &amp; Video</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Crafts"> Crafts</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Design &amp; Architecture"> Design &amp; Architecture</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Music &amp; Sound"> Music &amp; Sound</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Literature &amp; Writing"> Literature &amp; Writing</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Performance"> Theater / Dance / Performance</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="Urban Research &amp; Community"> Urban Research / Community</label>
+                <label class="kapp-check-item"><input type="checkbox" name="disciplines" value="other"> Other</label>
+              </div>
+              <div class="kapp-field" id="disciplineOtherField" hidden style="margin-top:8px;">
+                <label for="fDisciplineOtherText">Other Discipline <span class="kapp-req">*Required</span></label>
+                <input class="kapp-input" type="text" id="fDisciplineOtherText" name="disciplineOtherText" placeholder="Please specify your field">
+              </div>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <label for="fMaterialsNotes">Main Materials, Tools &amp; Special Notes <span class="kapp-optional">Optional</span></label>
+              <textarea class="kapp-textarea" id="fMaterialsNotes" name="materialsNotes" placeholder="e.g.) acrylic paint, wood, power tools, video editing; no night work, etc."></textarea>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <label for="fActivityOverview">Purpose &amp; Overview of Activities <span class="kapp-req">*Required</span> <span class="kapp-sub">Approx. 150–300 words</span></label>
+              <textarea class="kapp-textarea" id="fActivityOverview" name="activityOverview" required placeholder="Outline the research, production, and community exchange you plan to pursue during your stay in Koganecho."></textarea>
+            </div>
+
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">Month-by-month Activity Plan <span class="kapp-req">*First 3 months required</span></div>
+              <div id="monthlyPlan" class="kapp-monthly-list">
+                <div class="kapp-info-box"><p>Once you set your desired move-in date in Step 2, input fields for each month of your stay will appear here.</p></div>
+              </div>
+              <p class="kapp-help">Briefly note your plans per month (research, production, exhibition prep, community exchange…). Details can be discussed at the Zoom interview.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= STEP 4 ================= -->
+        <section class="kapp-step" data-step="4" aria-labelledby="step4Title">
+          <h2 class="kapp-step-title" id="step4Title"><span class="kapp-sec-num">4</span>Document Upload</h2>
+          <p class="kapp-step-desc">
+            Upload the three required documents (Portfolio, C.V., Artist Statement).
+            All documents must be written in <strong>Japanese or English</strong>. File size limits are noted for each.
+          </p>
+
+          <div class="kapp-notice" role="note">
+            <p><strong>Connection note:</strong> Since this form handles large files (up to 120MB), a stable Wi-Fi connection is recommended. If your connection drops, reopening this page lets you resume the process (within 24 hours after the deadline).</p>
+          </div>
+
+          <div class="kapp-grid" style="grid-template-columns:1fr;">
+
+            <!-- Portfolio -->
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">① Portfolio <span class="kapp-req">*Required</span></div>
+              <div class="kapp-filezone" data-dropzone="portfolio">
+                <div class="kapp-filezone-icon" aria-hidden="true">📁</div>
+                <p class="kapp-filezone-title">Portfolio (PDF)</p>
+                <p class="kapp-filezone-desc">
+                  Up to <strong>20 works</strong>, PDF format, <strong>max 120MB</strong><br>
+                  For video/audio works, include viewable URLs inside the PDF.
+                </p>
+                <button type="button" class="kapp-btn-choose">Choose file</button>
+              </div>
+              <div class="kapp-filecard" data-filecard="portfolio">
+                <span class="kapp-filecard-icon" aria-hidden="true">📄</span>
+                <div>
+                  <div class="kapp-filecard-name"></div>
+                  <div class="kapp-filecard-meta"></div>
+                </div>
+                <div class="kapp-filecard-actions">
+                  <button type="button" class="kapp-btn-unlink">Remove</button>
+                </div>
+              </div>
+              <input type="file" data-kind="portfolio" accept="application/pdf,.pdf" hidden>
+            </div>
+
+            <!-- Video / Audio URLs -->
+            <div class="kapp-field kapp-field-full">
+              <label class="kapp-field-label" for="fMediaUrls">Video / Audio Work URLs <span class="kapp-opt">Optional</span></label>
+              <textarea class="kapp-textarea" id="fMediaUrls" name="mediaUrls" rows="2" placeholder="e.g.) https://vimeo.com/xxxxxx&#10;https://youtu.be/xxxxxx (If password-protected, please include the password)"></textarea>
+              <p class="kapp-help">If you have viewable links on YouTube, Vimeo, SoundCloud, etc., you may also list them here (one per line).</p>
+            </div>
+
+            <!-- CV -->
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">② Curriculum Vitae (C.V.) <span class="kapp-req">*Required</span></div>
+              <div class="kapp-filezone" data-dropzone="cv">
+                <div class="kapp-filezone-icon" aria-hidden="true">📄</div>
+                <p class="kapp-filezone-title">C.V. (PDF / Word)</p>
+                <p class="kapp-filezone-desc">
+                  Summary of your practice, exhibitions, projects, and research (max 10MB)
+                </p>
+                <button type="button" class="kapp-btn-choose">Choose file</button>
+              </div>
+              <div class="kapp-filecard" data-filecard="cv">
+                <span class="kapp-filecard-icon" aria-hidden="true">📄</span>
+                <div>
+                  <div class="kapp-filecard-name"></div>
+                  <div class="kapp-filecard-meta"></div>
+                </div>
+                <div class="kapp-filecard-actions">
+                  <button type="button" class="kapp-btn-unlink">Remove</button>
+                </div>
+              </div>
+              <input type="file" data-kind="cv" accept="application/pdf,.pdf,.doc,.docx" hidden>
+            </div>
+
+            <!-- Statement -->
+            <div class="kapp-field kapp-field-full">
+              <div class="kapp-field-label">③ Artist Statement <span class="kapp-req">*Required</span></div>
+              <div class="kapp-filezone" data-dropzone="statement">
+                <div class="kapp-filezone-icon" aria-hidden="true">✍️</div>
+                <p class="kapp-filezone-title">Artist Statement (PDF / Word)</p>
+                <p class="kapp-filezone-desc">
+                  Your artistic concepts, methods, and key areas of inquiry (max 10MB)
+                </p>
+                <button type="button" class="kapp-btn-choose">Choose file</button>
+              </div>
+              <div class="kapp-filecard" data-filecard="statement">
+                <span class="kapp-filecard-icon" aria-hidden="true">✍️</span>
+                <div>
+                  <div class="kapp-filecard-name"></div>
+                  <div class="kapp-filecard-meta"></div>
+                </div>
+                <div class="kapp-filecard-actions">
+                  <button type="button" class="kapp-btn-unlink">Remove</button>
+                </div>
+              </div>
+              <input type="file" data-kind="statement" accept="application/pdf,.pdf,.doc,.docx" hidden>
+            </div>
+          </div>
+
+          <div class="kapp-info-box">
+            <p>* The Application Form (including your activity plan) is this form itself — no separate document is needed.<br>* Submitted materials will not be returned.</p>
+          </div>
+        </section>
+
+        <!-- ================= STEP 5 ================= -->
+        <section class="kapp-step" data-step="5" aria-labelledby="step5Title">
+          <h2 class="kapp-step-title" id="step5Title"><span class="kapp-sec-num">5</span>Review, Consent &amp; Signature</h2>
+          <p class="kapp-step-desc">Review your entries, then agree to the terms and submit. Use the "Edit" buttons to go back to any step.</p>
+
+          <div class="kapp-review" id="reviewBody"><!-- Generated by JS --></div>
+
+          <div class="kapp-terms" style="margin-top:22px;">
+            <h3>[ Confirmation &amp; Pledges for Program Participation ]</h3>
+            <ul>
+              <li><strong>Costs:</strong> I will pay the monthly studio rent, studio fire &amp; liability insurance (JPY 1,000/month, tax incl.), and utilities (short-term: per the Center's standard flat-rate schedule / long-term: per actual meter readings) by their due dates.</li>
+              <li><strong>Key deposit &amp; restoration:</strong> A key deposit is required upon move-in. Upon move-out, I will restore the studio to its original condition and return it.</li>
+              <li><strong>Short-term duration:</strong> The short-term program (3 months) cannot be extended; <strong>all short-term residents move out and restore their studios by May 31, 2027</strong>.</li>
+              <li><strong>Rules &amp; community:</strong> I will comply with Koganecho Area Management Center's management rules and studio regulations, and maintain respectful relations with neighbors and fellow resident artists.</li>
+              <li><strong>International travel:</strong> Airfare, living expenses, overseas travel insurance, and <strong>visa acquisition are my own responsibility</strong>. I understand Japanese immigration regulations and that selling artworks on non-working visas is in principle prohibited.</li>
+              <li><strong>Personal information:</strong> Personal information provided here will be used solely for the selection and administration of this Open Call and the AIR program.</li>
+            </ul>
+          </div>
+
+          <div class="kapp-agree-list">
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeFees" required>
+              <span>I agree to self-fund the studio rent, utilities, and insurance (JPY 1,000/month). <span class="kapp-req">*Required</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeDeposit" required>
+              <span>I agree to the key deposit at move-in and the restoration obligation at move-out. <span class="kapp-req">*Required</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeShortTerm" required>
+              <span>I understand the short-term program is non-extendable and ends on May 31, 2027. <span class="kapp-req">*Required</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeRules" required>
+              <span>I agree to comply with the Center's rules and cooperate with the local community and other residents. <span class="kapp-req">*Required</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreeVisa" required>
+              <span>If traveling from abroad, I agree that visa acquisition and travel costs are my own responsibility. <span class="kapp-req">*Required</span></span>
+            </label>
+            <label class="kapp-agree-item">
+              <input type="checkbox" name="agreePrivacy" required>
+              <span>I agree to the handling of my personal information (submitted materials will not be returned). <span class="kapp-req">*Required</span></span>
+            </label>
+          </div>
+
+          <div class="kapp-grid" style="margin-top:18px;">
+            <div class="kapp-field">
+              <label for="fSignature">Signature (type your full name) <span class="kapp-req">*Required</span></label>
+              <input class="kapp-input" type="text" id="fSignature" name="signature" required placeholder="e.g.) YAMADA Taro">
+              <p class="kapp-help">The name you enter is recorded as your electronic signature.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= NAV ================= -->
+        <div class="kapp-nav">
+          <button type="button" class="kapp-btn kapp-btn-secondary" id="btnPrev" hidden>← Back</button>
+          <span class="kapp-nav-hint" id="navHint" aria-live="polite">Step 1 / 5</span>
+          <button type="button" class="kapp-btn kapp-btn-primary" id="btnNext">Next →</button>
+          <button type="button" class="kapp-btn kapp-btn-primary" id="btnSubmit" hidden>Submit Application</button>
+        </div>
+      </form>
+
+      <!-- ============ SUBMIT PANEL ============ -->
+      <div class="kapp-submit-panel" id="submitPanel" hidden>
+        <!-- Phase: Prepare -->
+        <div id="phasePrepare">
+          <h2>Submitting</h2>
+          <p class="kapp-submit-lead" id="phaseLead">Contacting server… (issuing your application ID and preparing uploads)</p>
+          <p style="text-align:center;"><span class="kapp-spinner" aria-hidden="true"></span><span style="font-size:13.5px; color:var(--muted);">Please wait…</span></p>
+        </div>
+
+        <!-- Phase: Upload -->
+        <div id="phaseUpload" hidden>
+          <h2>Uploading Documents</h2>
+          <p class="kapp-submit-lead">Please keep this page open while your files upload. Progress is shown below.</p>
+          <div id="uploadRows"></div>
+          <p id="uploadOverall" class="kapp-help" style="margin-top:14px;" aria-live="polite"></p>
+        </div>
+
+        <!-- Phase: Done -->
+        <div id="phaseDone" hidden>
+          <div class="kapp-done">
+            <div class="kapp-done-check" aria-hidden="true">✓</div>
+            <h2>Application Submitted</h2>
+            <p class="kapp-submit-lead">We have received your application with the ID below. A confirmation email has been sent — please check your inbox (and spam folder).</p>
+            <p class="kapp-app-id-label" style="font-size:12.5px; color:var(--muted); font-weight:700; margin-bottom:4px;">Application ID</p>
+            <div class="kapp-done-id" id="doneAppId">—</div>
+            <div class="kapp-next-steps">
+              <h3>What Happens Next</h3>
+              <ul id="doneNextSteps"></ul>
+            </div>
+            <p style="margin-top:16px; font-size:13px; color:var(--muted);">Please keep your Application ID — you will need it for any inquiries.</p>
+          </div>
+        </div>
+
+        <!-- Phase: Error -->
+        <div id="phaseError" hidden>
+          <h2>An Error Occurred</h2>
+          <p class="kapp-submit-lead" id="errorMsg" style="color:var(--danger); font-weight:600;"></p>
+          <div id="errorActions" style="display:flex; gap:10px; flex-wrap:wrap;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="kapp-footer">
+    Koganecho Area Management Center (NPO)<br>
+    AIR Secretariat: <a href="mailto:air@koganecho.net">air@koganecho.net</a> / 2-158 Hinodecho, Naka-ku, Yokohama, Kanagawa 231-0066, Japan<br>
+    <span style="font-size:11.5px;">© Koganecho Area Management Center · Open Call 2027</span>
+  </footer>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
