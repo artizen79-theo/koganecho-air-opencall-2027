@@ -1,0 +1,1399 @@
+/* ============================================================
+ * Koganecho AIR 2027 — Online Application Form
+ * Shared stylesheet (index.html / en.html)
+ * 디자인 토큰은 모집요강 페이지(kair-opencall)와 동일 계열
+ * ============================================================ */
+
+.kapp {
+  --ink: #18181b;
+  --ink-2: #3f3f46;
+  --muted: #52525b;
+  --border: #e4e4e7;
+  --border-strong: #d4d4d8;
+  --bg: #ffffff;
+  --surface: #faf9f6;
+  --surface-alt: #f4f3ef;
+  --primary: #1e293b;
+  --primary-hover: #0f172a;
+  --accent: #b45309;
+  --accent-bg: #fffbeb;
+  --accent-border: #fde68a;
+  --teal: #0f766e;
+  --teal-soft: #ccfbf1;
+  --blue: #1d4ed8;
+  --blue-soft: #dbeafe;
+  --danger: #b91c1c;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+  --success: #15803d;
+  --success-bg: #f0fdf4;
+  --success-border: #bbf7d0;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+
+  font-family: 'Noto Sans JP', 'Noto Sans', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+    'Yu Gothic', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  color: var(--ink);
+  background-color: var(--surface-alt);
+  line-height: 1.7;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.kapp *,
+.kapp *::before,
+.kapp *::after {
+  box-sizing: border-box;
+}
+
+/* hidden 속성은 클래스/인라인 display 보다 항상 우선 (빈 배너 렌더링 방지) */
+.kapp [hidden] {
+  display: none !important;
+}
+
+.kapp a {
+  color: var(--primary);
+  text-underline-offset: 3px;
+}
+
+.kapp :focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Skip link ---------- */
+.kapp .kapp-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 var(--radius-sm) 0;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.kapp .kapp-skip:focus {
+  left: 0;
+}
+
+/* ---------- Top bar ---------- */
+.kapp .kapp-topbar {
+  background: var(--primary);
+  color: #f8fafc;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.kapp .kapp-topbar-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kapp .kapp-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fbbf24;
+}
+
+.kapp .kapp-brand-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.kapp .kapp-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.kapp .kapp-lang-switch a {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.kapp .kapp-lang-switch a:hover {
+  color: #fff;
+  background: rgb(255 255 255 / 0.12);
+}
+
+.kapp .kapp-lang-switch a[aria-current="page"] {
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ---------- Layout ---------- */
+.kapp .kapp-main {
+  padding: 32px 16px 72px;
+}
+
+.kapp .kapp-container {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+.kapp .kapp-header {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px 34px 26px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow);
+}
+
+.kapp .kapp-title {
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+.kapp .kapp-lead {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  margin: 0 0 18px;
+  max-width: 68ch;
+}
+
+.kapp .kapp-deadline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: #92400e;
+  margin-bottom: 18px;
+}
+
+.kapp .kapp-deadline-badge.is-open::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  display: inline-block;
+}
+
+.kapp .kapp-deadline-badge.is-closed {
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger);
+}
+
+.kapp .kapp-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.kapp .kapp-fact {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.kapp .kapp-fact dt {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--muted);
+  margin: 0 0 3px;
+}
+
+.kapp .kapp-fact dd {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---------- Banners (status / draft / resume) ---------- */
+.kapp .kapp-banner {
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 13.5px;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.kapp .kapp-banner strong {
+  font-weight: 700;
+}
+
+.kapp .kapp-banner-info {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  color: var(--ink-2);
+}
+
+.kapp .kapp-banner-warn {
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-left: 4px solid var(--accent);
+  color: #78350f;
+}
+
+.kapp .kapp-banner-error {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  border-left: 4px solid var(--danger);
+  color: #7f1d1d;
+}
+
+.kapp .kapp-banner-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+/* ---------- Closed panel ---------- */
+.kapp .kapp-closed {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 44px 36px;
+  text-align: center;
+}
+
+.kapp .kapp-closed h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.kapp .kapp-closed p {
+  color: var(--ink-2);
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+/* ---------- Form shell ---------- */
+.kapp form.kapp-form {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* ---------- Wizard progress ---------- */
+.kapp .kapp-progress {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+  counter-reset: step;
+}
+
+.kapp .kapp-progress li {
+  counter-increment: step;
+}
+
+.kapp .kapp-progress button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  padding: 13px 8px 12px;
+  cursor: default;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.kapp .kapp-progress button::before {
+  content: counter(step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  color: var(--ink);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.kapp .kapp-progress li.is-active button {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.kapp .kapp-progress li.is-active button::before {
+  background: var(--primary);
+  color: #fff;
+}
+
+.kapp .kapp-progress li.is-done button::before {
+  content: "✓";
+  background: var(--teal);
+  color: #fff;
+}
+
+.kapp .kapp-progress li.is-clickable button {
+  cursor: pointer;
+}
+
+.kapp .kapp-progress li.is-clickable button:hover {
+  color: var(--primary);
+  background: rgb(24 24 27 / 0.04);
+}
+
+/* ---------- Steps ---------- */
+.kapp .kapp-step {
+  padding: 30px 34px 26px;
+  display: none;
+}
+
+.kapp .kapp-step.is-visible {
+  display: block;
+}
+
+.kapp .kapp-step-title {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kapp .kapp-step-title .kapp-sec-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.kapp .kapp-step-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0 0 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Field groups ---------- */
+.kapp .kapp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+
+.kapp .kapp-grid + .kapp-grid {
+  margin-top: 16px;
+}
+
+.kapp .kapp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.kapp .kapp-field-full {
+  grid-column: 1 / -1;
+}
+
+.kapp .kapp-field > label,
+.kapp .kapp-field-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.kapp .kapp-req {
+  color: var(--danger);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.kapp .kapp-optional {
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.kapp .kapp-sub {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.kapp .kapp-input,
+.kapp .kapp-select,
+.kapp .kapp-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kapp .kapp-textarea {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.kapp .kapp-input:focus,
+.kapp .kapp-select:focus,
+.kapp .kapp-textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.15);
+}
+
+.kapp .kapp-input[aria-invalid="true"],
+.kapp .kapp-select[aria-invalid="true"],
+.kapp .kapp-textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+
+.kapp .kapp-help {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.kapp .kapp-help a {
+  color: var(--blue);
+}
+
+.kapp .kapp-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.kapp .kapp-input-row > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.kapp .kapp-field-error {
+  font-size: 12px;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* ---------- Option cards (radio) ---------- */
+.kapp .kapp-option-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 4px 0 6px;
+}
+
+.kapp .kapp-option-cards.kapp-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.kapp .kapp-option-card {
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  background: var(--surface);
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  margin: 0;
+}
+
+.kapp .kapp-option-card:hover {
+  border-color: var(--primary);
+  background: var(--bg);
+}
+
+.kapp .kapp-option-card input[type="radio"],
+.kapp .kapp-option-card input[type="checkbox"] {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.kapp .kapp-option-card:has(input:checked) {
+  border-color: var(--primary);
+  border-width: 1.5px;
+  background: var(--bg);
+  box-shadow: 0 0 0 3px rgb(30 41 59 / 0.08);
+}
+
+.kapp .kapp-option-card.is-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--surface-alt);
+}
+
+.kapp .kapp-option-card.is-disabled input {
+  cursor: not-allowed;
+}
+
+.kapp .kapp-option-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.kapp .kapp-option-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.kapp .kapp-option-desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.kapp .kapp-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.kapp .kapp-tag-teal {
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+
+.kapp .kapp-tag-amber {
+  background: var(--accent-bg);
+  color: #92400e;
+}
+
+/* ---------- Checkbox grid ---------- */
+.kapp .kapp-check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 8px;
+  margin: 4px 0 6px;
+}
+
+.kapp .kapp-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  cursor: pointer;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.kapp .kapp-check-item:hover {
+  background: var(--surface-alt);
+  border-color: var(--border-strong);
+}
+
+.kapp .kapp-check-item input {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ---------- Info / notice boxes ---------- */
+.kapp .kapp-info-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  margin: 14px 0;
+}
+
+.kapp .kapp-info-box p {
+  margin: 0;
+}
+
+.kapp .kapp-notice {
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 13.5px;
+  color: #78350f;
+  margin: 14px 0;
+}
+
+.kapp .kapp-notice p {
+  margin: 0;
+}
+
+/* ---------- Monthly plan ---------- */
+.kapp .kapp-monthly-list {
+  display: grid;
+  gap: 14px;
+}
+
+.kapp .kapp-monthly-item {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.kapp .kapp-monthly-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 10px 14px;
+  background: var(--surface-alt);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.kapp .kapp-monthly-item .kapp-textarea {
+  min-height: 74px;
+}
+
+/* ---------- File upload ---------- */
+.kapp .kapp-filezone {
+  border: 1.5px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: 20px 18px;
+  text-align: center;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  margin-bottom: 6px;
+}
+
+.kapp .kapp-filezone.is-dragover {
+  border-color: var(--primary);
+  background: var(--bg);
+}
+
+.kapp .kapp-filezone.is-hidden {
+  display: none;
+}
+
+.kapp .kapp-filezone-icon {
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+.kapp .kapp-filezone-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.kapp .kapp-filezone-desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.kapp .kapp-btn-choose {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--primary);
+  background: var(--bg);
+  color: var(--primary);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.kapp .kapp-btn-choose:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.kapp .kapp-filecard {
+  display: none;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--success-bg);
+  padding: 14px 16px;
+  margin-bottom: 6px;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kapp .kapp-filecard.is-visible {
+  display: flex;
+}
+
+.kapp .kapp-filecard.is-error {
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+}
+
+.kapp .kapp-filecard-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.kapp .kapp-filecard-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+  word-break: break-all;
+}
+
+.kapp .kapp-filecard-meta {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.kapp .kapp-filecard-actions {
+  margin-left: auto;
+}
+
+.kapp .kapp-btn-unlink {
+  border: 1px solid var(--border-strong);
+  background: #fff;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-2);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.kapp .kapp-btn-unlink:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+/* ---------- Review ---------- */
+.kapp .kapp-review {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.kapp .kapp-review-section {
+  border-bottom: 1px solid var(--border);
+}
+
+.kapp .kapp-review-section:last-child {
+  border-bottom: none;
+}
+
+.kapp .kapp-review-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 18px;
+  background: var(--surface-alt);
+}
+
+.kapp .kapp-review-head h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.kapp .kapp-review-edit {
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--blue);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.kapp .kapp-review-edit:hover {
+  background: var(--blue-soft);
+}
+
+.kapp .kapp-review-body {
+  padding: 12px 18px 14px;
+}
+
+.kapp .kapp-review-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 8px 16px;
+  padding: 5px 0;
+  font-size: 13.5px;
+}
+
+.kapp .kapp-review-row dt {
+  font-weight: 700;
+  color: var(--muted);
+  margin: 0;
+}
+
+.kapp .kapp-review-row dd {
+  margin: 0;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---------- Agreements ---------- */
+.kapp .kapp-terms {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  margin-bottom: 16px;
+}
+
+.kapp .kapp-terms h3 {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.kapp .kapp-terms ul {
+  margin: 0 0 12px;
+  padding-left: 18px;
+}
+
+.kapp .kapp-terms li {
+  margin-bottom: 7px;
+}
+
+.kapp .kapp-agree-list {
+  display: grid;
+  gap: 8px;
+}
+
+.kapp .kapp-agree-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  cursor: pointer;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.kapp .kapp-agree-item:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-alt);
+}
+
+.kapp .kapp-agree-item input {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.kapp .kapp-agree-item.is-invalid {
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+
+/* ---------- Honeypot ---------- */
+.kapp .kapp-hp {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ---------- Step navigation ---------- */
+.kapp .kapp-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 34px 22px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.kapp .kapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.25;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+  border: 1.5px solid transparent;
+}
+
+.kapp .kapp-btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.kapp .kapp-btn-primary:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.kapp .kapp-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.kapp .kapp-btn-secondary {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--border-strong);
+}
+
+.kapp .kapp-btn-secondary:hover {
+  background: var(--surface-alt);
+  border-color: var(--ink);
+}
+
+.kapp .kapp-btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border-color: transparent;
+  padding: 12px 14px;
+}
+
+.kapp .kapp-btn-ghost:hover {
+  color: var(--ink);
+  background: var(--surface-alt);
+}
+
+.kapp .kapp-nav .kapp-nav-hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---------- Error summary ---------- */
+.kapp .kapp-error-summary {
+  border: 1px solid var(--danger-border);
+  background: var(--danger-bg);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.kapp .kapp-error-summary h3 {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--danger);
+  margin: 0 0 8px;
+}
+
+.kapp .kapp-error-summary ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #7f1d1d;
+}
+
+.kapp .kapp-error-summary li {
+  margin-bottom: 4px;
+}
+
+.kapp .kapp-error-summary a {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+/* ---------- Submit panel ---------- */
+.kapp .kapp-submit-panel {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 34px 36px;
+}
+
+.kapp .kapp-submit-panel h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.kapp .kapp-submit-lead {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 0 0 22px;
+}
+
+.kapp .kapp-upload-row {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 12px 16px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.kapp .kapp-upload-row:last-of-type {
+  border-bottom: none;
+}
+
+.kapp .kapp-upload-name {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.kapp .kapp-upload-meta {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 2px;
+  word-break: break-all;
+}
+
+.kapp .kapp-progressbar {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.kapp .kapp-progressbar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: var(--primary);
+  transition: width 0.25s ease;
+}
+
+.kapp .kapp-upload-status {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.kapp .kapp-upload-status.is-done {
+  color: var(--success);
+}
+
+.kapp .kapp-upload-status.is-error {
+  color: var(--danger);
+}
+
+.kapp .kapp-spinner {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2.5px solid var(--border-strong);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: kapp-spin 0.8s linear infinite;
+  vertical-align: -2px;
+  margin-right: 7px;
+}
+
+@keyframes kapp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Done panel ---------- */
+.kapp .kapp-done {
+  text-align: center;
+  padding: 18px 0 6px;
+}
+
+.kapp .kapp-done-check {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--success-bg);
+  border: 2px solid var(--success-border);
+  color: var(--success);
+  font-size: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.kapp .kapp-done-id {
+  display: inline-block;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: var(--radius-sm);
+  margin: 8px 0 14px;
+}
+
+.kapp .kapp-done p {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 0 0 8px;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kapp .kapp-next-steps {
+  text-align: left;
+  max-width: 560px;
+  margin: 18px auto 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  background: var(--surface);
+}
+
+.kapp .kapp-next-steps h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.kapp .kapp-next-steps ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.kapp .kapp-next-steps li {
+  margin-bottom: 5px;
+}
+
+/* ---------- Footer ---------- */
+.kapp .kapp-footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+  padding: 26px 20px 30px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.kapp .kapp-footer a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .kapp .kapp-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .kapp .kapp-main {
+    padding: 16px 10px 56px;
+  }
+
+  .kapp .kapp-header,
+  .kapp .kapp-submit-panel {
+    padding: 22px 18px;
+  }
+
+  .kapp .kapp-step {
+    padding: 22px 18px;
+  }
+
+  .kapp .kapp-nav {
+    padding: 14px 18px 18px;
+    flex-wrap: wrap;
+  }
+
+  .kapp .kapp-grid,
+  .kapp .kapp-option-cards,
+  .kapp .kapp-option-cards.kapp-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .kapp .kapp-progress {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .kapp .kapp-progress button {
+    font-size: 0;
+    padding: 10px 4px 9px;
+    gap: 0;
+  }
+
+  .kapp .kapp-progress button::after {
+    content: "";
+  }
+
+  .kapp .kapp-progress button span {
+    display: none;
+  }
+
+  .kapp .kapp-monthly-item {
+    grid-template-columns: 1fr;
+  }
+
+  .kapp .kapp-monthly-label {
+    text-align: left;
+  }
+
+  .kapp .kapp-upload-row {
+    grid-template-columns: 1fr;
+  }
+
+  .kapp .kapp-review-row {
+    grid-template-columns: 1fr;
+    gap: 2px 0;
+  }
+
+  .kapp .kapp-btn {
+    width: 100%;
+  }
+
+  .kapp .kapp-nav {
+    flex-direction: column-reverse;
+  }
+
+  .kapp .kapp-nav .kapp-nav-hint {
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .kapp *,
+  .kapp *::before,
+  .kapp *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .kapp .kapp-topbar,
+  .kapp .kapp-progress,
+  .kapp .kapp-nav,
+  .kapp .kapp-banner-actions {
+    display: none;
+  }
+
+  .kapp .kapp-step {
+    display: block !important;
+  }
+}
