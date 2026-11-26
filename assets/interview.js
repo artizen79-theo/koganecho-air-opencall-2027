@@ -7,6 +7,7 @@
   const q = new URLSearchParams(window.location.search);
   const APP_ID = (q.get('id') || '').trim();
   const TOKEN = (q.get('token') || '').trim();
+  const IS_PREVIEW = q.get('preview') === '1';
 
   let lang = q.get('lang') === 'en' ? 'en' : 'ja';
   let state = { applicant: null, currentBooking: null, lock: {}, slots: [], selectedDate: null, selectedTime: null };
@@ -230,6 +231,32 @@
 
   async function loadInfo() {
     applyStaticText();
+    if (IS_PREVIEW) {
+      const dates = ['2027-01-12', '2027-01-13', '2027-01-14', '2027-01-15'];
+      const times = [
+        '11:00-11:20', '11:20-11:40', '11:40-12:00',
+        '13:00-13:20', '13:20-13:40', '13:40-14:00',
+        '14:00-14:20', '14:20-14:40', '14:40-15:00',
+        '15:00-15:20', '15:20-15:40', '15:40-16:00',
+        '16:00-16:20', '16:20-16:40', '16:40-17:00',
+      ];
+      state.applicant = {
+        appId: 'AIR2027-001 (Preview)',
+        name: '山田 太郎 / YAMADA Taro',
+        program: 'short',
+        interviewLang: 'Japanese',
+        lang: lang,
+      };
+      state.lock = { locked: false, pastDeadline: false, bookingTooClose: false, deadlineLabel: '2027-01-10 18:00 JST', lockHours: 24 };
+      state.slots = [];
+      dates.forEach((d, di) => {
+        times.forEach((t, ti) => {
+          state.slots.push({ date: d, time: t, status: (di === 0 && ti === 1) ? 'BOOKED' : 'OPEN', mine: false, tooClose: false });
+        });
+      });
+      renderApp();
+      return;
+    }
     if (!GAS_URL || !APP_ID || !TOKEN) {
       showError(I18N[lang].errMissing);
       return;
@@ -258,6 +285,18 @@
 
   async function submitBooking() {
     if (!state.selectedDate || !state.selectedTime) return;
+    if (IS_PREVIEW) {
+      const booking = { date: state.selectedDate, time: state.selectedTime, zoomUrl: 'https://zoom.us/j/example' };
+      state.currentBooking = booking;
+      $('#ivApp').hidden = true;
+      $('#ivDoneTime').textContent = `${fmtDateLabel(booking.date)} ${booking.time} JST`;
+      const doneZoom = $('#ivDoneZoom');
+      doneZoom.hidden = false;
+      doneZoom.innerHTML = `${escapeHtml(I18N[lang].zoomLabel)}<a href="${escapeHtml(booking.zoomUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(booking.zoomUrl)}</a>`;
+      $('#ivDoneDesc').textContent = I18N[lang].doneDescWithZoom;
+      $('#ivDone').hidden = false;
+      return;
+    }
     const btn = $('#ivSubmitBtn');
     btn.disabled = true;
     btn.textContent = I18N[lang].submitting;
