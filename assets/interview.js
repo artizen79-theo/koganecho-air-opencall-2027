@@ -9,7 +9,7 @@
   const TOKEN = (q.get('token') || '').trim();
 
   let lang = q.get('lang') === 'en' ? 'en' : 'ja';
-  let state = { applicant: null, currentBooking: null, slots: [], selectedDate: null, selectedTime: null };
+  let state = { applicant: null, currentBooking: null, lock: {}, slots: [], selectedDate: null, selectedTime: null };
 
   const I18N = {
     ja: {
@@ -21,6 +21,9 @@
       errMissing: 'URLに受付番号または認証トークンが含まれていません。案内メールのリンクから再度アクセスしてください。',
       errNotFound: '該当する応募情報が見つかりませんでした。air@koganecho.net までお問い合わせください。',
       errTaken: '選択された日時は先ほど他の方により予約されました。別の日時をお選びください。',
+      errDeadline: '予約・変更の最終締切を過ぎたため、オンラインでの操作はできません。air@koganecho.net までお問い合わせください。',
+      errTooClose: '面接開始時刻の24時間前を過ぎているため、オンラインでの変更はできません。緊急の変更は air@koganecho.net までご連絡ください。',
+      errSlotTooClose: '開始24時間以内の時間帯は選択できません。別の日時をお選びください。',
       errNet: '通信エラーが発生しました。しばらくしてから再度お試しください。',
       lblId: '受付番号',
       lblName: 'お名前',
@@ -30,12 +33,14 @@
       progLong: '長期（1年）',
       currentLbl: '現在のご予約日時（確定済み）',
       currentNote: '変更が必要な場合は下のボタンから別の日時を選択してください。',
+      currentNoteLocked: '変更受付期限を過ぎたため、オンラインでの変更はできません。緊急の変更は air@koganecho.net までご連絡ください。',
       reschedule: '予約日時を変更する',
       pickDate: '1. 日付を選択（JST）',
       pickTime: '2. 時間を選択（20分間・JST）',
       submit: 'この日時で予約を確定する',
       submitting: '予約を確定しています…',
       bookedTag: '予約済み',
+      closedTag: '受付終了',
       noSlots: '現在予約可能な日程がありません。air@koganecho.net までお問い合わせください。',
       doneTitle: '✓ Zoom面接の日時が確定しました',
       doneDesc: '確認メールをお送りしましたのでご確認ください。Zoomの参加URLは面接日の前日までに別途メールでお送りいたします。',
@@ -53,6 +58,9 @@
       errMissing: 'Missing application ID or token in URL. Please use the personal link in your email.',
       errNotFound: 'Application not found or invalid link. Please contact air@koganecho.net.',
       errTaken: 'That time slot was just booked by another applicant. Please select a different slot.',
+      errDeadline: 'The booking/reschedule deadline has passed. Please contact air@koganecho.net.',
+      errTooClose: 'Online rescheduling is closed within 24 hours of your scheduled interview. For urgent changes, contact air@koganecho.net.',
+      errSlotTooClose: 'Slots within 24 hours cannot be selected. Please choose a later slot.',
       errNet: 'Network error. Please try again shortly.',
       lblId: 'Application ID',
       lblName: 'Applicant',
@@ -62,12 +70,14 @@
       progLong: 'Long-term (1 year)',
       currentLbl: 'Current Confirmed Interview',
       currentNote: 'If you need to reschedule, click below to choose another slot.',
+      currentNoteLocked: 'The reschedule deadline has passed, so online changes are closed. For urgent inquiries, please contact air@koganecho.net.',
       reschedule: 'Change / Reschedule Time',
       pickDate: '1. Select Date (JST)',
       pickTime: '2. Select Time Slot (20 min · JST)',
       submit: 'Confirm Interview Time',
       submitting: 'Confirming your booking…',
       bookedTag: 'Booked',
+      closedTag: 'Closed',
       noSlots: 'No interview slots are currently open. Please contact air@koganecho.net.',
       doneTitle: '✓ Interview Time Confirmed',
       doneDesc: 'A confirmation email has been sent to you. We will email the Zoom link no later than one day before your interview.',
@@ -155,9 +165,12 @@
     const daySlots = state.slots.filter((s) => s.date === state.selectedDate);
     $('#ivSlots').innerHTML = daySlots.map((s) => {
       const isBooked = s.status !== 'OPEN' && !s.mine;
+      const isClosed = !!s.tooClose && !s.mine;
+      const isDisabled = isBooked || isClosed;
       const isSel = state.selectedTime === s.time;
-      return `<button type="button" class="kiv-slot${isSel ? ' is-selected' : ''}" data-time="${escapeHtml(s.time)}" ${isBooked ? 'disabled' : ''}>` +
-        `${escapeHtml(s.time)} JST${isBooked ? `<br><small>${t.bookedTag}</small>` : ''}</button>`;
+      const tag = isBooked ? t.bookedTag : (isClosed ? t.closedTag : '');
+      return `<button type="button" class="kiv-slot${isSel ? ' is-selected' : ''}" data-time="${escapeHtml(s.time)}" ${isDisabled ? 'disabled' : ''}>` +
+        `${escapeHtml(s.time)} JST${tag ? `<br><small>${tag}</small>` : ''}</button>`;
     }).join('');
 
     $('#ivSubmitBtn').disabled = !state.selectedTime;
@@ -187,8 +200,21 @@
         curZoom.hidden = true;
         curZoom.textContent = '';
       }
-      $('#ivCurrentNote').textContent = t.currentNote;
+      if (state.lock && state.lock.locked) {
+        $('#ivCurrentNote').textContent = t.currentNoteLocked;
+        $('#ivRescheduleBtn').hidden = true;
+      } else {
+        const dl = (state.lock && state.lock.deadlineLabel)
+          ? (lang === 'ja'
+            ? `（変更締切: ${state.lock.deadlineLabel}／面接開始24時間前まで）`
+            : ` (Deadline: ${state.lock.deadlineLabel} / up to 24h before interview)`)
+          : '';
+        $('#ivCurrentNote').textContent = t.currentNote + dl;
+        $('#ivRescheduleBtn').hidden = false;
+      }
       $('#ivPickerWrap').hidden = true;
+    } else if (state.lock && state.lock.pastDeadline) {
+      showError(t.errDeadline);
     } else {
       $('#ivCurrentBox').hidden = true;
       $('#ivPickerWrap').hidden = false;
@@ -218,6 +244,7 @@
       }
       state.applicant = data.applicant;
       state.currentBooking = data.currentBooking;
+      state.lock = data.lock || {};
       state.slots = data.slots || [];
       if (!q.get('lang') && state.applicant.lang) {
         lang = state.applicant.lang;
@@ -248,7 +275,13 @@
       });
       const data = await res.json();
       if (!data.ok) {
-        alert(data.code === 'taken' ? I18N[lang].errTaken : I18N[lang].errNet);
+        const msgMap = {
+          taken: I18N[lang].errTaken,
+          deadlinePassed: I18N[lang].errDeadline,
+          tooClose: I18N[lang].errTooClose,
+          slotTooClose: I18N[lang].errSlotTooClose,
+        };
+        alert(msgMap[data.code] || I18N[lang].errNet);
         await loadInfo();
         return;
       }
