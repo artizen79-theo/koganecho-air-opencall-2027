@@ -39,6 +39,8 @@
       noSlots: '現在予約可能な日程がありません。air@koganecho.net までお問い合わせください。',
       doneTitle: '✓ Zoom面接の日時が確定しました',
       doneDesc: '確認メールをお送りしましたのでご確認ください。Zoomの参加URLは面接日の前日までに別途メールでお送りいたします。',
+      doneDescWithZoom: '確認メールをお送りしましたのでご確認ください。面接当日は開始5分前までに上記Zoom URLよりご入室ください。',
+      zoomLabel: 'Zoom参加URL: ',
       reloadBtn: '予約状況を確認・変更する',
       weekdays: ['日', '月', '火', '水', '木', '金', '土'],
     },
@@ -69,6 +71,8 @@
       noSlots: 'No interview slots are currently open. Please contact air@koganecho.net.',
       doneTitle: '✓ Interview Time Confirmed',
       doneDesc: 'A confirmation email has been sent to you. We will email the Zoom link no later than one day before your interview.',
+      doneDescWithZoom: 'A confirmation email has been sent to you. Please join via the Zoom URL above at least 5 minutes before your scheduled time.',
+      zoomLabel: 'Zoom URL: ',
       reloadBtn: 'View / Change Booking',
       weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     },
@@ -175,6 +179,14 @@
       $('#ivCurrentBox').hidden = false;
       $('#ivCurrentLabel').textContent = t.currentLbl;
       $('#ivCurrentTime').textContent = `${fmtDateLabel(state.currentBooking.date)} ${state.currentBooking.time} JST`;
+      const curZoom = $('#ivCurrentZoom');
+      if (state.currentBooking.zoomUrl) {
+        curZoom.hidden = false;
+        curZoom.innerHTML = `${escapeHtml(t.zoomLabel)}<a href="${escapeHtml(state.currentBooking.zoomUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(state.currentBooking.zoomUrl)}</a>`;
+      } else {
+        curZoom.hidden = true;
+        curZoom.textContent = '';
+      }
       $('#ivCurrentNote').textContent = t.currentNote;
       $('#ivPickerWrap').hidden = true;
     } else {
@@ -243,6 +255,16 @@
       state.currentBooking = data.booking;
       $('#ivApp').hidden = true;
       $('#ivDoneTime').textContent = `${fmtDateLabel(data.booking.date)} ${data.booking.time} JST`;
+      const doneZoom = $('#ivDoneZoom');
+      if (data.booking.zoomUrl) {
+        doneZoom.hidden = false;
+        doneZoom.innerHTML = `${escapeHtml(I18N[lang].zoomLabel)}<a href="${escapeHtml(data.booking.zoomUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(data.booking.zoomUrl)}</a>`;
+        $('#ivDoneDesc').textContent = I18N[lang].doneDescWithZoom;
+      } else {
+        doneZoom.hidden = true;
+        doneZoom.textContent = '';
+        $('#ivDoneDesc').textContent = I18N[lang].doneDesc;
+      }
       $('#ivDone').hidden = false;
     } catch (e) {
       alert(I18N[lang].errNet);
